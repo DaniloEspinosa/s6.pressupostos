@@ -1,0 +1,69 @@
+import styled from "styled-components";
+import PriceComponent from "./PriceComponent";
+
+const Card = styled.div`
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  height: 120px;
+  box-shadow: 10px 10px 31px -6px rgba(0, 0, 0, 0.35);
+`;
+
+const CardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 40%;
+  span:first-child {
+    font-weight: bolder;
+    font-size: 1.2rem;
+  }
+  span:nth-child(2) {
+    font-size: 0.8rem;
+  }
+`;
+
+const CheckComponent = styled.label`
+  display: flex;
+  gap: 10px;
+  span {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+`;
+
+interface CheckboxCardProps {
+  name: string;
+  description: string;
+  price: number;
+  checked: boolean;
+  onToggle: () => void;
+}
+
+const CheckboxCard = ({
+  name,
+  description,
+  price,
+  checked,
+  onToggle
+}: CheckboxCardProps) => {
+  return (
+    <Card>
+      <CardInfo>
+        <span>{name}</span>
+        <span>{description}</span>
+      </CardInfo>
+      <PriceComponent price={price} symbol="€" />
+
+      <CheckComponent>
+        <input type="checkbox" checked={checked} onChange={onToggle} />
+        <span>Afegir</span>
+      </CheckComponent>
+    </Card>
+  );
+};
+
+export default CheckboxCard;
