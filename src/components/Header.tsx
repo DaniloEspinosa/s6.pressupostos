@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`
@@ -9,6 +10,7 @@ const HeaderContainer = styled.div`
 
 const HeaderContent = styled.header`
   display: flex;
+  flex-direction: column;
   padding: 1rem;
   background-image: url("/pexels-steve-1789968.avif");
   height: 200px;
@@ -29,6 +31,22 @@ const Header = () => {
     <HeaderContainer>
       <HeaderContent>
         <span>Aconsegueix la millor qualitat</span>
+        <div className="flex gap-4 w-[300px] justify-around ">
+          <Link
+            className="bg-amber-100 text-zinc-700 w-[110px] text-center rounded-xl
+             hover:bg-amber-300 hover:scale-120 hover:text-black transition duration-300 ease-in-out"
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="bg-amber-100 text-zinc-700 w-[110px] text-center rounded-xl
+             hover:bg-amber-300 hover:scale-120 hover:text-black transition duration-300 ease-in-out"
+            to="/presupostos"
+          >
+            Pressupostos
+          </Link>
+        </div>
       </HeaderContent>
     </HeaderContainer>
   );
