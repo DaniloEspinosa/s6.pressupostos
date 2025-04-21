@@ -1,15 +1,21 @@
 import styled from "styled-components";
 import PriceComponent from "./PriceComponent";
+import PagesLanguajes from "./PagesLanguajes";
+
+const CardContainer = styled.div`
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 30px;
+  box-shadow: 10px 10px 31px -6px rgba(0, 0, 0, 0.35);
+`;
 
 const Card = styled.div`
-  padding: 1rem;
-  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 30px;
-  height: 120px;
-  box-shadow: 10px 10px 31px -6px rgba(0, 0, 0, 0.35);
 `;
 
 const CardInfo = styled.div`
@@ -51,18 +57,21 @@ const CheckboxCard = ({
   onToggle
 }: CheckboxCardProps) => {
   return (
-    <Card>
-      <CardInfo>
-        <span>{name}</span>
-        <span>{description}</span>
-      </CardInfo>
-      <PriceComponent price={price} symbol="€" />
+    <CardContainer>
+      <Card>
+        <CardInfo>
+          <span>{name}</span>
+          <span>{description}</span>
+        </CardInfo>
+        <PriceComponent price={price} symbol="€" />
 
-      <CheckComponent>
-        <input type="checkbox" checked={checked} onChange={onToggle} />
-        <span>Afegir</span>
-      </CheckComponent>
-    </Card>
+        <CheckComponent>
+          <input type="checkbox" checked={checked} onChange={onToggle} />
+          <span>Afegir</span>
+        </CheckComponent>
+      </Card>
+      <PagesLanguajes />
+    </CardContainer>
   );
 };
 
