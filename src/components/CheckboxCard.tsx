@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import PriceComponent from "./PriceComponent";
 import PagesLanguajes from "./PagesLanguajes";
+import { useEffect } from "react";
 
 const CardContainer = styled.div`
   padding: 2rem 1rem;
@@ -47,6 +48,7 @@ interface CheckboxCardProps {
   price: number;
   checked: boolean;
   onToggle: () => void;
+  setAditional: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const CheckboxCard = ({
@@ -54,8 +56,13 @@ const CheckboxCard = ({
   description,
   price,
   checked,
-  onToggle
+  onToggle,
+  setAditional
 }: CheckboxCardProps) => {
+  useEffect(() => {
+    if (!checked) setAditional(0);
+  }, [checked, setAditional]);
+
   return (
     <CardContainer>
       <Card>
@@ -70,7 +77,9 @@ const CheckboxCard = ({
           <span>Afegir</span>
         </CheckComponent>
       </Card>
-      <PagesLanguajes />
+      {checked && name === "Web" && (
+        <PagesLanguajes setAditional={setAditional} />
+      )}
     </CardContainer>
   );
 };

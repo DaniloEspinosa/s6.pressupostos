@@ -13,7 +13,7 @@ const Layout = () => {
 
   return (
     <Container>
-      <CheckboxCardList onTotalChange={setTotal} />
+      <CheckboxCardList setTotal={setTotal} />
       <TotalPrice total={total} />
     </Container>
   );

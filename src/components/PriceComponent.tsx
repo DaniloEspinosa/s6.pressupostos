@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PriceComponentStyle = styled.div`
-  width: 70px;
+  width: 80px;
 `;
 
 const PriceStyle = styled.span`

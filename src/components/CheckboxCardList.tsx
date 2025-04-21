@@ -1,48 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckboxCard from "./CheckboxCard";
-
-const data = [
-  {
-    id: 1,
-    name: "Seo",
-    description: "Programació d'una web responsive completa",
-    price: 300
-  },
-  {
-    id: 2,
-    name: "Ads",
-    description: "Programació d'una web responsive completa",
-    price: 600
-  },
-  {
-    id: 3,
-    name: "Web",
-    description: "Programació d'una web responsive completa",
-    price: 200
-  }
-];
+import data from "../data/data.json";
 
 interface Props {
-  onTotalChange: (total: number) => void;
+  setTotal: (total: number) => void;
 }
 
-const CheckboxCardList = ({ onTotalChange }: Props) => {
+const CheckboxCardList = ({ setTotal }: Props) => {
   const [selectedServices, setSelectedServices] = useState<number[]>([]);
+  const [aditional, setAditional] = useState<number>(0);
 
   const toggleService = (id: number) => {
-    setSelectedServices((prev) => {
-      const newSelected = prev.includes(id)
-        ? prev.filter((item) => {
-            return item !== id;
-          })
-        : [...prev, id];
-      const total = data
-        .filter((item) => newSelected.includes(item.id))
-        .reduce((sum, item) => sum + item.price, 0);
-      onTotalChange(total);
-      return newSelected;
-    });
+    setSelectedServices((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
   };
+
+  useEffect(() => {
+    const total = data
+      .filter((item) => selectedServices.includes(item.id))
+      .reduce((sum, item) => sum + item.price, 0);
+    setTotal(total + aditional);
+  }, [selectedServices, setTotal, aditional]);
 
   return (
     <div>
@@ -54,6 +33,7 @@ const CheckboxCardList = ({ onTotalChange }: Props) => {
           price={item.price}
           checked={selectedServices.includes(item.id)}
           onToggle={() => toggleService(item.id)}
+          setAditional={setAditional}
         />
       ))}
     </div>
