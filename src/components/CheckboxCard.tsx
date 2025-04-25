@@ -2,6 +2,7 @@ import styled from "styled-components";
 import PriceComponent from "./PriceComponent";
 import PagesLanguajes from "./PagesLanguajes";
 import { useEffect } from "react";
+import PopUpModal from "./PopUpModal";
 
 const CardContainer = styled.div`
   padding: 2rem 1rem;
@@ -76,6 +77,9 @@ const CheckboxCard = ({
         <CardInfo>
           <span>{name}</span>
           <span>{description}</span>
+          <div>
+            <PopUpModal title={name} description={description} />
+          </div>
         </CardInfo>
         <PriceComponent price={price} symbol="€" />
 

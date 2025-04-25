@@ -1,10 +1,18 @@
+import PopUpModal from "./PopUpModal";
+
 type Props = {
   name: string;
+  description: string;
   quantity: number;
   setQuantity: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const QuantitySelector = ({ name, quantity, setQuantity }: Props) => {
+const QuantitySelector = ({
+  name,
+  quantity,
+  setQuantity,
+  description
+}: Props) => {
   const addQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -15,6 +23,7 @@ const QuantitySelector = ({ name, quantity, setQuantity }: Props) => {
 
   return (
     <div className="flex justify-end gap-5 items-center h-8">
+      <PopUpModal description={description} title={name} />
       <p className="text-xs">{name}</p>
       <div className="w-1/5 flex justify-between h-full items-center gap-2">
         <button

@@ -26,11 +26,13 @@ const PagesLanguajes = ({ setAditional, setCounterAditional }: Props) => {
     <div className="flex flex-col gap-2">
       <QuantitySelector
         name="Nombre de pàgines"
+        description="Afegeix les pàgines que necessitis per a dur a terme el teu projecte. El cost de cada pàgina es de 30€"
         quantity={pagines}
         setQuantity={setPagines}
       />
       <QuantitySelector
         name="Nombre de llenguatges"
+        description="Afegeix les llenguatges que tindra el teu projecte. El cost de cada llenguatge es de 30€"
         quantity={llenguatges}
         setQuantity={setLlenguatges}
       />
