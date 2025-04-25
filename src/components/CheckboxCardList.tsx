@@ -1,12 +1,23 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import CheckboxCard from "./CheckboxCard";
 import data from "../data/data.json";
 
 interface Props {
   setTotal: (total: number) => void;
+  setServices: React.Dispatch<SetStateAction<string[]>>;
+  setCounterAditional: React.Dispatch<
+    React.SetStateAction<{
+      pagines: number;
+      llenguatges: number;
+    }>
+  >;
 }
 
-const CheckboxCardList = ({ setTotal }: Props) => {
+const CheckboxCardList = ({
+  setTotal,
+  setServices,
+  setCounterAditional
+}: Props) => {
   const [selectedServices, setSelectedServices] = useState<number[]>([]);
   const [aditional, setAditional] = useState<number>(0);
 
@@ -21,7 +32,11 @@ const CheckboxCardList = ({ setTotal }: Props) => {
       .filter((item) => selectedServices.includes(item.id))
       .reduce((sum, item) => sum + item.price, 0);
     setTotal(total + aditional);
-  }, [selectedServices, setTotal, aditional]);
+    const services = data
+      .filter((item) => selectedServices.includes(item.id))
+      .map((item) => item.name);
+    setServices(services);
+  }, [selectedServices, setTotal, aditional, setServices]);
 
   return (
     <div>
@@ -34,6 +49,7 @@ const CheckboxCardList = ({ setTotal }: Props) => {
           checked={selectedServices.includes(item.id)}
           onToggle={() => toggleService(item.id)}
           setAditional={setAditional}
+          setCounterAditional={setCounterAditional}
         />
       ))}
     </div>

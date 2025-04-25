@@ -3,9 +3,15 @@ import QuantitySelector from "./QuantitySelector";
 
 type Props = {
   setAditional: React.Dispatch<React.SetStateAction<number>>;
+  setCounterAditional: React.Dispatch<
+    React.SetStateAction<{
+      pagines: number;
+      llenguatges: number;
+    }>
+  >;
 };
 
-const PagesLanguajes = ({ setAditional }: Props) => {
+const PagesLanguajes = ({ setAditional, setCounterAditional }: Props) => {
   const [pagines, setPagines] = useState<number>(0);
   const [llenguatges, setLlenguatges] = useState<number>(0);
 
@@ -13,7 +19,8 @@ const PagesLanguajes = ({ setAditional }: Props) => {
 
   useEffect(() => {
     setAditional((pagines + llenguatges) * priceAditionalUnit);
-  }, [pagines, llenguatges, setAditional]);
+    setCounterAditional({ pagines: pagines, llenguatges: llenguatges });
+  }, [pagines, llenguatges, setAditional, setCounterAditional]);
 
   return (
     <div className="flex flex-col gap-2">

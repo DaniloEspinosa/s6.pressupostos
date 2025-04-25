@@ -49,6 +49,12 @@ interface CheckboxCardProps {
   checked: boolean;
   onToggle: () => void;
   setAditional: React.Dispatch<React.SetStateAction<number>>;
+  setCounterAditional: React.Dispatch<
+    React.SetStateAction<{
+      pagines: number;
+      llenguatges: number;
+    }>
+  >;
 }
 
 const CheckboxCard = ({
@@ -57,7 +63,8 @@ const CheckboxCard = ({
   price,
   checked,
   onToggle,
-  setAditional
+  setAditional,
+  setCounterAditional
 }: CheckboxCardProps) => {
   useEffect(() => {
     if (!checked) setAditional(0);
@@ -78,7 +85,10 @@ const CheckboxCard = ({
         </CheckComponent>
       </Card>
       {checked && name === "Web" && (
-        <PagesLanguajes setAditional={setAditional} />
+        <PagesLanguajes
+          setAditional={setAditional}
+          setCounterAditional={setCounterAditional}
+        />
       )}
     </CardContainer>
   );
