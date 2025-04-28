@@ -19,17 +19,41 @@ const InfoCard = styled.div`
   }
 `;
 
+const DateInfo = styled.span`
+  font-size: 0.8rem;
+  color: #666;
+  display: block;
+  margin-top: 4px;
+`;
+
 interface Props {
   pressupostos: Pressuposto;
 }
 
 const Pressupostos = ({ pressupostos }: Props) => {
+  // Formatear la fecha para mostrarla en un formato legible
+  const formatDate = (date: Date) => {
+    if (!date) return "";
+
+    const d = new Date(date);
+    return d.toLocaleDateString("ca-ES", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  };
+
   return (
     <CardContainer>
       <InfoCard>
         <h3>{pressupostos.name}</h3>
         <p>{pressupostos.email}</p>
         <p>{pressupostos.tel}</p>
+        {pressupostos.createdAt && (
+          <DateInfo>Data: {formatDate(pressupostos.createdAt)}</DateInfo>
+        )}
       </InfoCard>
       <div>
         <p>Serveis contractats:</p>

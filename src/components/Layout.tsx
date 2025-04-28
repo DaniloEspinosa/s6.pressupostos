@@ -33,8 +33,10 @@ const Layout = () => {
       email: dataPressuposto.email,
       services: servicesList,
       tel: dataPressuposto.tel,
-      total: total
+      total: total,
+      createdAt: new Date() // Añadimos la fecha actual
     };
+
     setPressupostos((prev) => [...prev, pressuposto]);
   };
 
