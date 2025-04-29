@@ -16,6 +16,7 @@ const Layout = () => {
   const [total, setTotal] = useState(0);
   const [services, setServices] = useState<string[]>([]);
   const [pressupostos, setPressupostos] = useState<Pressuposto[]>([]);
+  const [isAnnual, setIsAnnual] = useState<boolean>(false);
   const [counterAditional, setCounteraditional] = useState<{
     pagines: number;
     llenguatges: number;
@@ -28,13 +29,19 @@ const Layout = () => {
         : item
     );
 
+    // Si es anual, añadimos un indicador en el listado de servicios
+    const finalServicesList = isAnnual
+      ? [...servicesList, "Pressupost anual (20% de descompte)"]
+      : servicesList;
+
     const pressuposto: Pressuposto = {
       name: dataPressuposto.name,
       email: dataPressuposto.email,
-      services: servicesList,
+      services: finalServicesList,
       tel: dataPressuposto.tel,
       total: total,
-      createdAt: new Date() // Añadimos la fecha actual
+      createdAt: new Date(),
+      isAnnual: isAnnual // Guardamos si es anual o no
     };
 
     setPressupostos((prev) => [...prev, pressuposto]);
@@ -46,8 +53,10 @@ const Layout = () => {
         setTotal={setTotal}
         setServices={setServices}
         setCounterAditional={setCounteraditional}
+        setIsAnnual={setIsAnnual}
+        isAnnual={isAnnual}
       />
-      <TotalPrice total={total} />
+      <TotalPrice total={total} isAnnual={isAnnual} />
       <FormDemanar generatePressuposto={generatePressuposto} />
       <PressupostosList pressupostos={pressupostos} />
     </Container>

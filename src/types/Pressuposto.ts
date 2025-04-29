@@ -5,4 +5,5 @@ export interface Pressuposto {
   tel: string;
   total: number;
   createdAt: Date;
+  isAnnual: boolean; // Indica si es un presupuesto anual con descuento
 }
