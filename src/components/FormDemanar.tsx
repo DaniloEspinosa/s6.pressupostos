@@ -1,5 +1,5 @@
 // components/BudgetForm.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { DataForm } from "../types/DataForm";
 
@@ -51,14 +51,26 @@ const Button = styled.button`
 
 type Props = {
   generatePressuposto: (dataPressuposto: DataForm) => void;
+  initialData?: DataForm | null;
 };
 
-const FormDemanar = ({ generatePressuposto }: Props) => {
-  const [formData, setFormData] = useState({
+const FormDemanar = ({ generatePressuposto, initialData }: Props) => {
+  const [formData, setFormData] = useState<DataForm>({
     name: "",
     tel: "",
     email: ""
   });
+
+  // Actualizar el formulario cuando se reciben datos iniciales
+  useEffect(() => {
+    if (initialData) {
+      setFormData({
+        name: initialData.name || "",
+        tel: initialData.tel || "",
+        email: initialData.email || ""
+      });
+    }
+  }, [initialData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

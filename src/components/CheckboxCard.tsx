@@ -56,6 +56,10 @@ interface CheckboxCardProps {
       llenguatges: number;
     }>
   >;
+  initialPagesLanguages?: {
+    pagines: number;
+    llenguatges: number;
+  };
 }
 
 const CheckboxCard = ({
@@ -65,7 +69,8 @@ const CheckboxCard = ({
   checked,
   onToggle,
   setAditional,
-  setCounterAditional
+  setCounterAditional,
+  initialPagesLanguages
 }: CheckboxCardProps) => {
   useEffect(() => {
     if (!checked) setAditional(0);
@@ -92,6 +97,7 @@ const CheckboxCard = ({
         <PagesLanguajes
           setAditional={setAditional}
           setCounterAditional={setCounterAditional}
+          initialValues={initialPagesLanguages}
         />
       )}
     </CardContainer>
