@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Pressuposto } from "../types/Pressuposto";
-import PriceComponent from "./PriceComponent";
+import { Pressuposto } from "../../types/Pressuposto";
+import PriceComponent from "../common/PriceComponent";
 import { useState } from "react";
 
 const CardContainer = styled.div`

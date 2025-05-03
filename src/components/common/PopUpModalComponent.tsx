@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
 
 interface Props {
   title: string;
   description: string;
 }
 
-const PopUpModal = ({
+const PopUpModalComponent = ({
   title = "Aqui el título",
   description = "Aqui la descripción"
 }: Props) => {
@@ -28,7 +29,7 @@ const PopUpModal = ({
               className="p-3 rounded-full hover:font-bold hover:bg-amber-500 hover:scale-110 transition duration-100"
               onClick={() => setShowModal((prev) => !prev)}
             >
-              X
+              <IoCloseSharp />
             </button>
           </div>
         </div>
@@ -37,4 +38,4 @@ const PopUpModal = ({
   );
 };
 
-export default PopUpModal;
+export default PopUpModalComponent;

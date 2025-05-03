@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import QuantitySelector from "./QuantitySelector";
+import QuantitySelector from "../common/QuantitySelector";
 
 type Props = {
   setAditional: React.Dispatch<React.SetStateAction<number>>;

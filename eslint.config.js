@@ -13,7 +13,7 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      eslintConfigPrettier, // Desactiva reglas de ESLint en conflicto con Prettier
+      eslintConfigPrettier,
     ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -26,7 +26,7 @@ export default tseslint.config(
       react,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      prettier, // Agregamos Prettier
+      prettier,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -34,8 +34,8 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
-      "prettier/prettier": "error", // Forzamos que el código cumpla con Prettier
-      "react/react-in-jsx-scope": "off", // No es necesario con Next.js o Vite
+      "prettier/prettier": "error",
+      "react/react-in-jsx-scope": "off",
     },
     settings: {
       react: {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PriceComponent from "./PriceComponent";
+import PriceComponent from "../common/PriceComponent";
 
 const TotalContainer = styled.div`
   display: flex;
@@ -31,9 +31,8 @@ interface TotalPriceProps {
 }
 
 const TotalPrice = ({ total, isAnnual = false }: TotalPriceProps) => {
-  // Calculamos el precio original antes del descuento (si hay descuento)
-  const originalPrice = isAnnual ? total / 0.8 : total;
-  const discountAmount = isAnnual ? originalPrice - total : 0;
+  const originalPrice = isAnnual ? total / 0.8 : total; //Precio total, con o sin descuento segun corresponda
+  const discountAmount = isAnnual ? originalPrice - total : 0; //Descuento aplicado
 
   return (
     <div>
@@ -55,7 +54,6 @@ const TotalPrice = ({ total, isAnnual = false }: TotalPriceProps) => {
               />
             </div>
           )}
-          <PriceComponent price={Math.round(total * 100) / 100} symbol="€" />
           {isAnnual && (
             <DiscountInfo>
               <span>Pressupost anual</span>
@@ -64,6 +62,7 @@ const TotalPrice = ({ total, isAnnual = false }: TotalPriceProps) => {
               </span>
             </DiscountInfo>
           )}
+          <PriceComponent price={Math.round(total * 100) / 100} symbol="€" />
         </div>
       </TotalContainer>
     </div>

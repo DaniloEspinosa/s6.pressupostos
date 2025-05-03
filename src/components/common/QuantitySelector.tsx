@@ -1,4 +1,4 @@
-import PopUpModal from "./PopUpModal";
+import PopUpModal from "./PopUpModalComponent";
 
 type Props = {
   name: string;

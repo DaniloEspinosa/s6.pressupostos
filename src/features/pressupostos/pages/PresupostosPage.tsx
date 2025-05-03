@@ -1,12 +1,12 @@
-import Header from "../components/Header";
+import Header from "../../../components/common/Header";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Pressuposto } from "../types/Pressuposto";
-import { DataForm } from "../types/DataForm";
-import CheckboxCardList from "../components/CheckboxCardList";
-import TotalPrice from "../components/TotalPrice";
-import FormDemanar from "../components/FormDemanar";
-import PressupostosList from "../components/PressupostosList";
+import { Pressuposto } from "../../../types/Pressuposto";
+import { DataForm } from "../../../types/DataForm";
+import CheckboxCardList from "../../../components/pressupostos/ServiceCardList";
+import TotalPrice from "../../../components/pressupostos/TotalPrice";
+import FormDemanar from "../../../components/pressupostos/FormDemanar";
+import PressupostosList from "../../../components/pressupostos/PressupostosList";
 import { useLocation } from "react-router-dom";
 
 const Container = styled.div`

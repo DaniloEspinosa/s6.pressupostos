@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import PriceComponent from "./PriceComponent";
+import PriceComponent from "../common/PriceComponent";
 import PagesLanguajes from "./PagesLanguajes";
 import { useEffect } from "react";
-import PopUpModal from "./PopUpModal";
+import PopUpModal from "../common/PopUpModalComponent";
 
 const CardContainer = styled.div`
   padding: 2rem 1rem;
@@ -40,6 +40,9 @@ const CheckComponent = styled.label`
   span {
     font-size: 0.8rem;
     font-weight: bold;
+  }
+  input:checked {
+    accent-color: #28a745;
   }
 `;
 

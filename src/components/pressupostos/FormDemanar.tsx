@@ -1,7 +1,7 @@
 // components/BudgetForm.tsx
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { DataForm } from "../types/DataForm";
+import { DataForm } from "../../types/DataForm";
 
 const FormWrapper = styled.form`
   padding: 2rem 1rem;

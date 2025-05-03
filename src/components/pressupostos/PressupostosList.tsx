@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressuposto } from "../types/Pressuposto";
+import { Pressuposto } from "../../types/Pressuposto";
 import Pressupostos from "./Pressupostos";
 import styled from "styled-components";
 
