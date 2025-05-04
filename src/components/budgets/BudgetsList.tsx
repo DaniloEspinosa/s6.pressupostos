@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Pressuposto } from "../../types/Pressuposto";
-import Pressupostos from "./Pressupostos";
+import { BudgetI } from "../../types/BudgetI";
+import Budget from "./Budget";
 import styled from "styled-components";
 
 const SortingButtons = styled.div`
@@ -72,12 +72,13 @@ const NoResults = styled.div`
 `;
 
 type Props = {
-  pressupostos: Pressuposto[];
+  pressupostos: BudgetI[];
+  handleDeleteBudget: (id: string) => void;
 };
 
 type SortType = "none" | "alphabetical" | "date";
 
-const PressupostosList = ({ pressupostos }: Props) => {
+const BudgetsList = ({ pressupostos, handleDeleteBudget }: Props) => {
   const [sortType, setSortType] = useState<SortType>("none");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
@@ -162,7 +163,7 @@ const PressupostosList = ({ pressupostos }: Props) => {
       {pressupostos.length > 0 ? (
         filteredPressupostos.length > 0 ? (
           filteredPressupostos.map((item, i) => (
-            <Pressupostos key={i} pressupostos={item} />
+            <Budget key={i} budgets={item} onDelete={handleDeleteBudget} />
           ))
         ) : (
           <NoResults>
@@ -176,4 +177,4 @@ const PressupostosList = ({ pressupostos }: Props) => {
   );
 };
 
-export default PressupostosList;
+export default BudgetsList;

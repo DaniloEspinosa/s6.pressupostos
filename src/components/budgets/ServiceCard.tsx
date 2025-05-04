@@ -55,13 +55,13 @@ interface CheckboxCardProps {
   setAditional: React.Dispatch<React.SetStateAction<number>>;
   setCounterAditional: React.Dispatch<
     React.SetStateAction<{
-      pagines: number;
-      llenguatges: number;
+      pages: number;
+      languages: number;
     }>
   >;
   initialPagesLanguages?: {
-    pagines: number;
-    llenguatges: number;
+    pages: number;
+    languages: number;
   };
 }
 

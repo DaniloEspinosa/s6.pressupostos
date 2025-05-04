@@ -5,13 +5,13 @@ type Props = {
   setAditional: React.Dispatch<React.SetStateAction<number>>;
   setCounterAditional: React.Dispatch<
     React.SetStateAction<{
-      pagines: number;
-      llenguatges: number;
+      pages: number;
+      languages: number;
     }>
   >;
   initialValues?: {
-    pagines: number;
-    llenguatges: number;
+    pages: number;
+    languages: number;
   };
 };
 
@@ -20,20 +20,20 @@ const PagesLanguajes = ({
   setCounterAditional,
   initialValues
 }: Props) => {
-  const [pagines, setPagines] = useState<number>(initialValues?.pagines || 0);
-  const [llenguatges, setLlenguatges] = useState<number>(
-    initialValues?.llenguatges || 0
+  const [pages, setPagines] = useState<number>(initialValues?.pages || 0);
+  const [languages, setLanguages] = useState<number>(
+    initialValues?.languages || 0
   );
 
   const priceAditionalUnit = 30;
 
   useEffect(() => {
-    setAditional((pagines + llenguatges) * priceAditionalUnit);
-    setCounterAditional({ pagines: pagines, llenguatges: llenguatges });
+    setAditional((pages + languages) * priceAditionalUnit);
+    setCounterAditional({ pages: pages, languages: languages });
 
     // Actualizar la URL cuando cambian las páginas o lenguajes
-    updateURLWithPagesAndLanguages(pagines, llenguatges);
-  }, [pagines, llenguatges, setAditional, setCounterAditional]);
+    updateURLWithPagesAndLanguages(pages, languages);
+  }, [pages, languages, setAditional, setCounterAditional]);
 
   // Función para actualizar la URL con páginas y lenguajes
   const updateURLWithPagesAndLanguages = (pages: number, langs: number) => {
@@ -52,14 +52,14 @@ const PagesLanguajes = ({
       <QuantitySelector
         name="Nombre de pàgines"
         description="Afegeix les pàgines que necessitis per a dur a terme el teu projecte. El cost de cada pàgina es de 30€"
-        quantity={pagines}
+        quantity={pages}
         setQuantity={setPagines}
       />
       <QuantitySelector
         name="Nombre de llenguatges"
         description="Afegeix les llenguatges que tindra el teu projecte. El cost de cada llenguatge es de 30€"
-        quantity={llenguatges}
-        setQuantity={setLlenguatges}
+        quantity={languages}
+        setQuantity={setLanguages}
       />
     </div>
   );

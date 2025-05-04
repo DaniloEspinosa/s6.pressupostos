@@ -1,5 +1,5 @@
-export type DataForm = {
+export interface DataFormI {
   name: string;
   tel: string;
   email: string;
-};
+}

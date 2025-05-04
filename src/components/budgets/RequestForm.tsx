@@ -1,7 +1,6 @@
-// components/BudgetForm.tsx
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { DataForm } from "../../types/DataForm";
+import { DataFormI } from "../../types/DataFormI";
 
 const FormWrapper = styled.form`
   padding: 2rem 1rem;
@@ -50,12 +49,12 @@ const Button = styled.button`
 `;
 
 type Props = {
-  generatePressuposto: (dataPressuposto: DataForm) => void;
-  initialData?: DataForm | null;
+  generatePressuposto: (dataPressuposto: DataFormI) => void;
+  initialData?: DataFormI | null;
 };
 
-const FormDemanar = ({ generatePressuposto, initialData }: Props) => {
-  const [formData, setFormData] = useState<DataForm>({
+const RequestForm = ({ generatePressuposto, initialData }: Props) => {
+  const [formData, setFormData] = useState<DataFormI>({
     name: "",
     tel: "",
     email: ""
@@ -116,4 +115,4 @@ const FormDemanar = ({ generatePressuposto, initialData }: Props) => {
   );
 };
 
-export default FormDemanar;
+export default RequestForm;

@@ -8,16 +8,16 @@ interface Props {
   setServices: React.Dispatch<SetStateAction<string[]>>;
   setCounterAditional: React.Dispatch<
     React.SetStateAction<{
-      pagines: number;
-      llenguatges: number;
+      pages: number;
+      languages: number;
     }>
   >;
   setIsAnnual: React.Dispatch<React.SetStateAction<boolean>>;
   isAnnual: boolean;
   initialSelectedServices?: number[];
   initialPagesLanguages?: {
-    pagines: number;
-    llenguatges: number;
+    pages: number;
+    languages: number;
   };
 }
 
@@ -75,8 +75,8 @@ const CheckboxCardList = ({
     // Si Web está seleccionado, añadir páginas y lenguajes
     if (updatedServices.includes(3)) {
       // 3 es el ID de Web
-      params.set("pages", initialPagesLanguages?.pagines.toString() || "0");
-      params.set("langs", initialPagesLanguages?.llenguatges.toString() || "0");
+      params.set("pages", initialPagesLanguages?.pages.toString() || "0");
+      params.set("langs", initialPagesLanguages?.languages.toString() || "0");
     } else {
       params.delete("pages");
       params.delete("langs");

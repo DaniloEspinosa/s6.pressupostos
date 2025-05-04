@@ -1,13 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import PresupostosPage from "../features/pressupostos/pages/PresupostosPage";
+import BudgetsPage from "../pages/BudgetsPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/presupostos" element={<PresupostosPage />} />
-    </Routes>
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/presupostos" element={<BudgetsPage />} />
+      </Routes>
+    </>
   );
 };
 
