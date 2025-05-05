@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# Presupuestos App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación para generar, gestionar y compartir presupuestos de manera sencilla. Los presupuestos se pueden guardar, eliminar y compartir mediante enlaces generados dinámicamente. Además, los datos tienen persistencia en el almacenamiento local del navegador.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Generación de presupuestos personalizados.
+- Persistencia de datos en el `localStorage`.
+- Compartir presupuestos mediante enlaces generados dinámicamente.
+- Eliminar presupuestos con notificaciones de confirmación.
+- Interfaz moderna y fácil de usar, diseñada con `styled-components`.
+- Notificaciones visuales con `react-toastify`.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologías utilizadas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React**: Biblioteca principal para la construcción de la interfaz.
+- **TypeScript**: Tipado estático para mayor robustez y escalabilidad.
+- **React Router**: Manejo de rutas y parámetros en la URL.
+- **Styled-components**: Estilización de componentes con CSS-in-JS.
+- **React-icons**: Iconos para botones y elementos visuales.
+- **React-toastify**: Notificaciones visuales para el usuario.
+- **Vite**: Herramienta de desarrollo rápida para aplicaciones React.
+
+---
+
+## ⚙️ Instalación y ejecución
+
+Sigue estos pasos para ejecutar el proyecto en tu máquina local:
+
+### 1. Clonar el repositorio
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_REPOSITORIO>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 2. Instalar dependencias
+Asegúrate de tener Node.js instalado. Luego, ejecuta:
+```bash
+npm install
 ```
+
+### 3. Ejecutar el proyecto en modo desarrollo
+```bash
+npm run dev
+```
+
+Esto iniciará un servidor de desarrollo. Abre tu navegador y ve a http://localhost:5173 para ver la aplicación.
+
+### 4. Construir para producción
+Si deseas generar una versión optimizada para producción, ejecuta:
+```bash
+npm run build
+```
+Los archivos generados estarán en la carpeta dist/.
+
+## 🧑‍💻 Cómo usar la aplicación
+1- Generar un presupuesto:
+- Selecciona los servicios deseados.
+- Completa los datos del cliente (nombre, email, teléfono).
+- Haz clic en "Generar presupuesto".
+  
+2- Compartir un presupuesto:
+- Haz clic en el botón de compartir (icono de enlace).
+- El enlace se copiará automáticamente al portapapeles.
+
+3- Eliminar un presupuesto:
+- Haz clic en el botón de eliminar (icono de papelera).
+- Aparecerá una notificación confirmando la eliminación.
+
+4- Persistencia de datos:
+- Los presupuestos generados se guardan automáticamente en el localStorage.
+- Al recargar la página, los presupuestos se cargarán automáticamente.
+
+## 📦 Dependencias principales
+- react: ^18.x
+- react-router-dom: ^6.x
+- styled-components: ^5.x
+- react-icons: ^4.x
+- react-toastify: ^9.x
+- vite: ^4.x
+
+## 📝 Notas adicionales
+- Si encuentras algún problema o tienes sugerencias, no dudes en abrir un issue en el repositorio.
+- Esta aplicación es un proyecto educativo y puede ser extendida con nuevas funcionalidades según las necesidades.
+
+
+---
+
+### **¿Qué incluye este README?**
+1. **Descripción del proyecto**: Una breve introducción sobre lo que hace la aplicación.
+2. **Características**: Lista de las funcionalidades principales.
+3. **Tecnologías utilizadas**: Herramientas y bibliotecas clave.
+4. **Instrucciones de instalación y ejecución**: Pasos claros para ejecutar el proyecto.
+5. **Guía de uso**: Cómo interactuar con la aplicación.
+6. **Dependencias principales**: Lista de las bibliotecas utilizadas.
+7. **Notas adicionales**: Información sobre contribuciones y problemas.

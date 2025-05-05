@@ -6,8 +6,10 @@ import styled from "styled-components";
 const SortingButtons = styled.div`
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
-  justify-content: flex-end;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  justify-content: space-between;
 `;
 
 const SortButton = styled.button`
@@ -28,18 +30,10 @@ const SortButton = styled.button`
   }
 `;
 
-const SearchContainer = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
-
 const SearchInput = styled.input`
   padding: 10px;
   border: 1px solid #dee2e6;
   border-radius: 5px;
-  width: 100%;
   font-size: 1rem;
 
   &:focus {
@@ -47,11 +41,6 @@ const SearchInput = styled.input`
     border-color: #adb5bd;
     box-shadow: 0 0 0 2px rgba(173, 181, 189, 0.25);
   }
-`;
-
-const SearchLabel = styled.label`
-  font-weight: 500;
-  color: #495057;
 `;
 
 const ListControls = styled.div`
@@ -110,10 +99,8 @@ const BudgetsList = ({ pressupostos, handleDeleteBudget }: Props) => {
     return filteredPressupostos;
   };
 
-  // Obtener presupuestos filtrados y ordenados
   const filteredPressupostos = getFilteredAndSortedPressupostos();
 
-  // Manejar cambio en el campo de búsqueda
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
@@ -122,20 +109,14 @@ const BudgetsList = ({ pressupostos, handleDeleteBudget }: Props) => {
     <div>
       {pressupostos.length > 0 && (
         <ListControls>
-          <SearchContainer>
-            <SearchLabel htmlFor="search-pressupostos">
-              Cercar pressupostos per nom:
-            </SearchLabel>
+          <SortingButtons>
             <SearchInput
               id="search-pressupostos"
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
-              placeholder="Escriu el nom a cercar..."
+              placeholder="Escriu el nom a cercar...🔍"
             />
-          </SearchContainer>
-
-          <SortingButtons>
             <SortButton
               onClick={() => setSortType("alphabetical")}
               style={{
